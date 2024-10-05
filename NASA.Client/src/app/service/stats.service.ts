@@ -1,11 +1,7 @@
 import { Injectable, signal } from '@angular/core';
+import { IStats } from '../models/stat';
 
-interface IStats {
-  budget: number;
-  safety: number;
-  infrastructure: number;
-  morale: number;
-}
+
 
 @Injectable({
   providedIn: 'root',
