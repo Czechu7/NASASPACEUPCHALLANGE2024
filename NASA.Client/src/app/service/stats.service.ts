@@ -11,10 +11,10 @@ interface IStats {
   providedIn: 'root'
 })
 export class StatsService {
-  points = signal<IStats>({ budget: 60, safety: 80, infrastructure: 70, morale: 90 });
+  stats = signal<IStats>({ budget: 60, safety: 80, infrastructure: 70, morale: 90 });
 
   updatePoints(stats: IStats) {
-    this.points.set(stats);
+    this.stats.set(stats);
   }
 
   constructor() { }
