@@ -1,24 +1,28 @@
 <div class="content">
-    <div class="content-head">
-        <div class="description">
-            {{data.description}}
-        </div>
-        <div class="stats">
-            {{data.stats}}
-        </div>
+  <div class="content-head">
+    <div class="description">
+      {{ data.description }}
     </div>
-    <div class="content-body">
+    <div class="stats">
+      {{ data.stats }}
+    </div>
+  </div>
+  <div class="content-body">
+    
+    <tabset class="tabset">
+      <tab heading="Decisions">
         <div class="body-controls">
-
-            <div>
-                <div class="decision">{{data.decision1}}</div>
-                <div class="decision">{{data.decision2}}</div>
-            </div>
-            <div>
-                <div class="decision">{{data.decision3}}</div>
-                <div class="decision">{{data.decision4}}</div>
-            </div>
-
+          <div>
+            <div class="decision">{{ data.decision1 }}</div>
+            <div class="decision">{{ data.decision2 }}</div>
+          </div>
+          <div>
+            <div class="decision">{{ data.decision3 }}</div>
+            <div class="decision">{{ data.decision4 }}</div>
+          </div>
         </div>
-    </div>
+      </tab>
+      <tab heading="Map"></tab>
+    </tabset>
+  </div>
 </div>
