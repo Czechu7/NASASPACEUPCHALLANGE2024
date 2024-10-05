@@ -18,11 +18,13 @@ interface IUserDecisions {
   templateUrl: './user-decisions.component.html',
   styleUrl: './user-decisions.component.scss',
 })
-export class UserDecisionsComponent{
+export class UserDecisionsComponent {
   svgFill: string;
+  day: number = 1;
+  round: number = 1;
 
   constructor() {
-    this.svgFill = 'rgba(0, 128, 0, 0.5)'; 
+    this.svgFill = 'rgba(0, 128, 0, 0.5)';
   }
   data: IUserDecisions = {
     description: 'This is a user decision.',
