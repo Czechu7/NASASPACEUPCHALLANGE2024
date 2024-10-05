@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import * as d3 from 'd3';
-import { customZagrebEvent } from '../../data/data';
-import { EonetApiResponse, EonetEvent } from '../../interfaces/eonet.interface';
+import { EonetEvent } from '../../interfaces/eonet.interface';
 import { EonetService } from '../../service/eonet-service.service';
 import { SpinnerComponent } from '../spinner/spinner.component';
-import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-world-map',
@@ -14,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrls: ['./world-map.component.scss'],
 })
 export class WorldMapComponent implements OnInit {
-  isLoading = false;
+  isLoading = true;
   selectedEvent: EonetEvent | null = null;
 
   constructor(private eonetService: EonetService) {}
@@ -22,7 +21,6 @@ export class WorldMapComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = false;
     this.createMap();
-    this.loadEvents();
   }
 
   createMap(): void {
@@ -40,25 +38,27 @@ export class WorldMapComponent implements OnInit {
 
     d3.json(
       'https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson'
-    ).then((data: any) => {
-      svg
-        .append('g')
-        .selectAll('path')
-        .data(data.features)
-        .enter()
-        .append('path')
-        .attr('fill', '#ccc')
-        .attr('stroke', '#333')
-        .attr('d', (d: any) => path(d));
-    });
+    )
+      .then((data: any) => {
+        svg
+          .append('g')
+          .selectAll('path')
+          .data(data.features)
+          .enter()
+          .append('path')
+          .attr('fill', '#ccc')
+          .attr('stroke', '#333')
+          .attr('d', (d: any) => path(d));
+      })
+      .finally(() => {
+        this.loadEvents();
+      });
   }
 
   loadEvents(): void {
-    this.eonetService.getEvents().subscribe((data: EonetApiResponse) => {
-      this.isLoading = false;
-      data.events.push(customZagrebEvent);
-      this.plotEvents(data.events);
-    });
+    const data = this.eonetService.getEvents();
+    this.isLoading = false;
+    this.plotEvents(data.events);
   }
 
   plotEvents(events: EonetEvent[]): void {
@@ -78,8 +78,8 @@ export class WorldMapComponent implements OnInit {
             .append('circle')
             .attr('cx', projected[0])
             .attr('cy', projected[1])
-            .attr('r', 5)
-            .attr('fill', geometry.isGame ? 'green' : 'red')
+            .attr('r', geometry.isGame ? 10 : 5)
+            .attr('fill', geometry.isGame ? '#63e667' : 'red')
             .attr('stroke', '#000')
             .attr('stroke-width', 1)
             .on('click', () => this.showEventDetails(event));
