@@ -40,6 +40,32 @@ namespace API.Controllers
             }
         }
 
+        // GET: api/questions/{id}
+        [AllowAnonymous]
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Question>> GetQuestionById(int id)
+        {
+            try
+            {
+                // Find the question by id and include related Decisions
+                var question = await _context.Question
+                    .Include(q => q.Decisions)
+                    .FirstOrDefaultAsync(q => q.Id == id);
+
+                if (question == null)
+                {
+                    return NotFound(new { message = "Question not found." });
+                }
+
+                return Ok(question);
+            }
+            catch (Exception ex)
+            {
+                // Return a 500 status with error details
+                return StatusCode(500, new { message = "An error occurred while retrieving the question.", details = ex.Message });
+            }
+        }
+
         // POST: api/questions
         [AllowAnonymous]
         [HttpPost]
@@ -49,7 +75,7 @@ namespace API.Controllers
             {
                 _context.Question.Add(question);
                 await _context.SaveChangesAsync();
-                return CreatedAtAction(nameof(GetQuestions), new { id = question.Id }, question);
+                return CreatedAtAction(nameof(GetQuestionById), new { id = question.Id }, question);
             }
             catch (Exception ex)
             {
