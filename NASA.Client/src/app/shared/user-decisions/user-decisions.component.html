@@ -48,16 +48,25 @@
       <tab heading="Decisions">
         <div class="body-controls">
           <div>
-            <div class="decision">{{ data.decision1 }}</div>
-            <div class="decision">{{ data.decision2 }}</div>
+            <div (click)="checkOption(data.decisions[0])"
+              class="decision  {{data.decisions[0] === checkedOption ? 'checked': ''}}">
+              {{ data.decisions[0].description }}
+            </div>
+            <div (click)="checkOption(data.decisions[1])"
+              class="decision {{data.decisions[1] === checkedOption ? 'checked': ''}}">
+              {{ data.decisions[1].description  }}</div>
           </div>
           <div>
-            <div class="decision">{{ data.decision3 }}</div>
-            <div class="decision">{{ data.decision4 }}</div>
+            <div (click)="checkOption(data.decisions[2])"
+              class="decision {{data.decisions[2] === checkedOption ? 'checked': ''}}">
+              {{ data.decisions[2].description  }}</div>
+            <div (click)="checkOption(data.decisions[3])"
+              class="decision {{data.decisions[3] === checkedOption ? 'checked': ''}}">
+              {{ data.decisions[3].description  }}</div>
           </div>
         </div>
         <div class="button-wrapper">
-          <button mat-flat-button>Next</button>
+          <button (click)="nextRounde()" mat-flat-button>Next</button>
         </div>
       </tab>
       <tab heading="Map">

@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { IStats } from '../models/stat';
 
-
+import { IDecision } from '../models/question';
 
 @Injectable({
   providedIn: 'root',
@@ -21,12 +21,33 @@ export class StatsService {
     this.stats.set(stats);
   }
 
-  nextRounde() {
+  nextRounde(checkedOption: IDecision) {
     this.round.update((r) => r + 1);
 
-    if (this.day() % 4 === 0) {
+    if (this.round() % 4 === 0) {
       this.day.update((d) => d + 1);
     }
+
+    const newStats = {
+      budget:
+        this.stats().budget + checkedOption.budget > 100
+          ? 100
+          : this.stats().budget + checkedOption.budget,
+      safety:
+        this.stats().safety + checkedOption.safety > 100
+          ? 100
+          : this.stats().safety + checkedOption.safety,
+      infrastructure:
+        this.stats().infrastructure + checkedOption.infrastructure > 100
+          ? 100
+          : this.stats().infrastructure + checkedOption.infrastructure,
+      morale:
+        this.stats().morale + checkedOption.morale > 100
+          ? 100
+          : this.stats().morale + checkedOption.morale,
+    };
+
+    this.updatePoints(newStats);
   }
 
   constructor() {}
