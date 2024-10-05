@@ -1,5 +1,10 @@
 <div class="content">
-  
+
+  <div class="days-container">
+    <div>Day Number {{day}}</div>
+    <div>Round number {{round}}</div>
+  </div>
+
   <div class="content-head">
     <div class="description">
       {{ data.description }}
@@ -9,13 +14,32 @@
     </div>
   </div>
   <div class="image-container">
-    <img class="stretched-img" src="assets/mood.svg" alt="Mood Icon">
-    <img class="stretched-img" src="assets/paid.svg" alt="Mood Icon">
-    <img class="stretched-img" src="assets/apartment.svg" alt="Mood Icon">
-    <img class="stretched-img" src="assets/security.svg" alt="Mood Icon">
+    <div class="stat-container">
+      <img class="stretched-img" src="assets/mood.svg" alt="Mood Icon" />
+      <div class="progress-container">
+        <div class="progress"></div>
+      </div>
+    </div>
+    <div class="stat-container">
+      <img class="stretched-img" src="assets/paid.svg" alt="Paid Icon" />
+      <div class="progress-container">
+        <div class="progress"></div>
+      </div>
+    </div>
+    <div class="stat-container">
+      <img class="stretched-img" src="assets/apartment.svg" alt="Apartment Icon" />
+      <div class="progress-container">
+        <div class="progress"></div>
+      </div>
+    </div>
+    <div class="stat-container">
+      <img class="stretched-img" src="assets/security.svg" alt="Security Icon" />
+      <div class="progress-container">
+        <div class="progress"></div>
+      </div>
+    </div>
   </div>
   <div class="content-body">
-
     <tabset class="tabset">
       <tab heading="Decisions">
         <div class="body-controls">
@@ -29,7 +53,9 @@
           </div>
         </div>
       </tab>
-      <tab heading="Map"></tab>
+      <tab heading="Map">
+        <app-map></app-map>
+      </tab>
     </tabset>
   </div>
 </div>
