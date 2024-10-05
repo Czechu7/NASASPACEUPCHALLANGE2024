@@ -1,0 +1,9 @@
+.main {
+  min-height: 84vh;
+}
+
+@media (max-width: 600px) {
+  .main {
+    min-height: 86vh;
+  }
+}
