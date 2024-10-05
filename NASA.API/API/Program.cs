@@ -1,4 +1,6 @@
 using System.Text;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 using API.Data;
 using API.Extensions;
 using API.Interfaces;
@@ -15,8 +17,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApplicationService(builder.Configuration);
 builder.Services.AddIdentityServices(builder.Configuration);
 
+builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
+{
+    options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
 
-    
+
+
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
@@ -31,6 +38,7 @@ if (app.Environment.IsDevelopment())
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod()
     .WithOrigins("http://localhost:4200","https://localhost:4200"));
+// Example configuration for your JsonSerializerOptions
 
 app.UseAuthentication();
 app.UseAuthorization();
