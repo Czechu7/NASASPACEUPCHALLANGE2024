@@ -30,10 +30,11 @@
 }
 
 .content p {
-  color: #353434; /* Lekko szary kolor */
+  color: #FFD700; /* Lekko szary kolor */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
   font-size: 1.8em;
   margin-bottom: 20px;
-  text-shadow: 1px 1px 2px white; /* Biała lekka obwódka */
+  
 }
 
 button {

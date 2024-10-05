@@ -26,3 +26,20 @@
 .navbar ul li a:hover {
   background-color: #f0f0f0;
 }
+
+.logo-container {
+  background-color: black;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.nasa-logo {
+  width: 75px;
+  height: 75px;
+}
