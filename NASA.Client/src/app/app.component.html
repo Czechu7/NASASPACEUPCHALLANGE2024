@@ -2,8 +2,16 @@
 
 <div class="main">
   <router-outlet />
-  <app-world-map></app-world-map>
+
+  <div class="content">
+    <div class="overlay-text"></div>
+    <img src="/assets/NASA-Space.png" alt="NASA Space Apps 2024" class="nasa-image">
+    <p>Globe protocol game!</p>
+    <button class="cta-button" (click)="goToNextPage()">Start your journey</button>
+  </div>
+  <router-outlet></router-outlet>
 </div>
+<app-world-map></app-world-map>
 
 
 <app-footer></app-footer>
