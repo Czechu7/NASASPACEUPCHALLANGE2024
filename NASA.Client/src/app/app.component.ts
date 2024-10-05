@@ -14,6 +14,7 @@ import { WorldMapComponent } from './components/world-map/world-map.component';
   selector: 'app-root',
   standalone: true,
   imports: [
+    HomeComponent,
     RouterOutlet,
     NavbarComponent,
     FooterComponent,
