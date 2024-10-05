@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { MapComponent } from '../../components/map/map.component';
 
 interface IUserDecisions {
   description: string;
@@ -13,11 +14,16 @@ interface IUserDecisions {
 @Component({
   selector: 'app-user-decisions',
   standalone: true,
-  imports: [TabsModule],
+  imports: [TabsModule, MapComponent],
   templateUrl: './user-decisions.component.html',
   styleUrl: './user-decisions.component.scss',
 })
-export class UserDecisionsComponent {
+export class UserDecisionsComponent{
+  svgFill: string;
+
+  constructor() {
+    this.svgFill = 'rgba(0, 128, 0, 0.5)'; 
+  }
   data: IUserDecisions = {
     description: 'This is a user decision.',
     stats: 'Stats of weather',

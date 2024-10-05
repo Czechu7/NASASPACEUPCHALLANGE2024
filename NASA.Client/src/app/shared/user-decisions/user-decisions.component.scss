@@ -1,3 +1,18 @@
+.stretched-img {
+    width: 100%;
+    height: 100px;
+    display: block;
+
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
 .content {
     margin: 0;
     height: 100%;
