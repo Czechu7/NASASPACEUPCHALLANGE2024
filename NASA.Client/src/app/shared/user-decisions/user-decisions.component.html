@@ -1,4 +1,5 @@
 <div class="content">
+  
   <div class="content-head">
     <div class="description">
       {{ data.description }}
@@ -6,6 +7,12 @@
     <div class="stats">
       {{ data.stats }}
     </div>
+  </div>
+  <div class="image-container">
+    <img class="stretched-img" src="assets/mood.svg" alt="Mood Icon" [style.fill]="svgFill">
+    <img class="stretched-img" src="assets/paid.svg" alt="Mood Icon" [style.fill]="svgFill">
+    <img class="stretched-img" src="assets/apartment.svg" alt="Mood Icon" [style.fill]="svgFill">
+    <img class="stretched-img" src="assets/security.svg" alt="Mood Icon" [style.fill]="svgFill">
   </div>
   <div class="content-body">
 
