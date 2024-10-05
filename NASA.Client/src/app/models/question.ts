@@ -16,6 +16,7 @@ export interface IResQuestion {
   }
 
   export interface IUserDecisions {
+    id?: any
     description: string;
     forecast: string;
     decision1: string;
