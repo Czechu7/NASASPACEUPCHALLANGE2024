@@ -1,5 +1,5 @@
 .main {
-  background-image: url('/assets/main.png');
+  background-image: url("/assets/main.png");
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -16,7 +16,7 @@
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background: rgba(255, 255, 255, 0);
   padding: 20px;
   border-radius: 10px;
@@ -30,11 +30,10 @@
 }
 
 .content p {
-  color: #FFD700; /* Lekko szary kolor */
+  color: #ffd700; /* Lekko szary kolor */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
   font-size: 1.8em;
   margin-bottom: 20px;
-  
 }
 
 button {
@@ -68,7 +67,7 @@ button.cta-button:hover {
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .cta-button {

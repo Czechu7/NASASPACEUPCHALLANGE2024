@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 export class EonetService {
   private apiUrl = 'https://eonet.gsfc.nasa.gov/api/v2.1/events';
 
-  // constructor(private http: HttpClient) {}
   private http = inject(HttpClient);
 
   getEvents(): Observable<any> {
