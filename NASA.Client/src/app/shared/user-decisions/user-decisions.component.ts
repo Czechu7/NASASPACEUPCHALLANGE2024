@@ -2,8 +2,14 @@ import { Component } from '@angular/core';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
 interface IUserDecisions {
+  stats: {
+    budget: number;
+    safety: number;
+    infrastructure: number;
+    morale: number;
+  };
   description: string;
-  stats: string;
+  forecast: string;
   decision1: string;
   decision2: string;
   decision3: string;
@@ -17,15 +23,16 @@ interface IUserDecisions {
   templateUrl: './user-decisions.component.html',
   styleUrl: './user-decisions.component.scss',
 })
-export class UserDecisionsComponent{
+export class UserDecisionsComponent {
   svgFill: string;
 
   constructor() {
-    this.svgFill = 'rgba(0, 128, 0, 0.5)'; 
+    this.svgFill = 'rgba(0, 128, 0, 0.5)';
   }
   data: IUserDecisions = {
+    stats: { budget: 100, safety: 60, infrastructure: 70, morale: 90 },
     description: 'This is a user decision.',
-    stats: 'Stats of weather',
+    forecast: 'Stats of weather',
     decision1: 'Decision 1',
     decision2: 'Decision 2',
     decision3: 'Decision 3',
