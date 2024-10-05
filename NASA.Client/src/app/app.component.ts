@@ -8,6 +8,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { Router } from '@angular/router';
 import { NgModel } from '@angular/forms';
 
+import { WorldMapComponent } from './components/world-map/world-map.component';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +19,8 @@ import { NgModel } from '@angular/forms';
     FooterComponent,
     MatToolbar,
     SpinnerComponent,
-    HomeComponent
-],
+    WorldMapComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
