@@ -2,7 +2,7 @@ export interface EventGeometry {
   date: string;
   type: string;
   coordinates: [number, number];
-  isGame: boolean;
+  isGame?: boolean;
 }
 
 export interface EventCategory {
