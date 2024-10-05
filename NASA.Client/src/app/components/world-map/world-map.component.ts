@@ -4,11 +4,12 @@ import * as d3 from 'd3';
 import { EonetEvent } from '../../interfaces/eonet.interface';
 import { EonetService } from '../../service/eonet-service.service';
 import { SpinnerComponent } from '../spinner/spinner.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-world-map',
   standalone: true,
-  imports: [SpinnerComponent, MatButtonModule],
+  imports: [SpinnerComponent, MatButtonModule, RouterModule],
   templateUrl: './world-map.component.html',
   styleUrls: ['./world-map.component.scss'],
 })
