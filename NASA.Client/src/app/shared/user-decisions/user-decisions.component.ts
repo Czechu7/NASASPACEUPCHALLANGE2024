@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { MapComponent } from '../../components/map/map.component';
 
 interface IUserDecisions {
   description: string;
@@ -13,7 +14,7 @@ interface IUserDecisions {
 @Component({
   selector: 'app-user-decisions',
   standalone: true,
-  imports: [TabsModule],
+  imports: [TabsModule, MapComponent],
   templateUrl: './user-decisions.component.html',
   styleUrl: './user-decisions.component.scss',
 })
