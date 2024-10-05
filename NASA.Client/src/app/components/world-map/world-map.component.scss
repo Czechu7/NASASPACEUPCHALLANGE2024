@@ -27,6 +27,20 @@ svg {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 10px;
   border-radius: 5px;
+  display: flex; 
+  align-items: center; 
+  width: calc(100% - 40px); 
+}
+
+.event-description {
+  width: 50%; 
+}
+
+.event-image {
+  margin-left: 25%;
+  width: calc(90% - 25%); 
+  height: auto; 
+  align-self: center; 
 }
 
 .button {
