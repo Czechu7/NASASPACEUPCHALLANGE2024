@@ -2,14 +2,14 @@ import { EonetApiResponse, EonetEvent } from '../interfaces/eonet.interface';
 
 export const customZagrebEvent: EonetEvent = {
   id: 'EONET_99999',
-  title: 'Minor Earthquake near Zagreb',
+  title: 'DANUBE WATCH 3 2010 -EXTREME FLOODS IN THE DANUBE BASIN',
   description:
-    'A minor earthquake has been reported near the city of Zagreb, Croatia.',
-  link: 'https://example.com/events/EONET_99999',
+    'Storms and heavy rains leaded to flash floods and inundation, and record breaking strong winds removed or destroyed the roofs of hundreds of family homes in eastern Croatia and the Trans-Danubian part of Hungary. Heavy rainfall affected central and northern regions of the Carpathian Basin from the Drava lowland to the Beskied Mountains and catchments of Slovak tributaries entering the Danube and Tisza.',
+  link: 'https://www.icpdr.org/publications/danube-watch-3-2010-extreme-floods-danube-basin',
   categories: [
     {
       id: 16,
-      title: 'Earthquakes',
+      title: 'Floods',
     },
   ],
   sources: [
@@ -20,7 +20,7 @@ export const customZagrebEvent: EonetEvent = {
   ],
   geometries: [
     {
-      date: '2024-10-05T10:00:00Z',
+      date: '2010-08-01',
       type: 'Point',
       coordinates: [15.9819, 45.815],
       isGame: true,
