@@ -27,7 +27,6 @@
       margin-bottom: 10px;
     }
 
-
     .progress {
       width: 80%;
       height: 100%;
@@ -35,9 +34,9 @@
     }
 
     .value {
-        position: absolute;
-        margin-top: 92px;
-      }
+      position: absolute;
+      margin-top: 92px;
+    }
   }
 }
 .content {
@@ -145,5 +144,17 @@
     padding: 20px;
     margin: auto 10px;
     text-align: center;
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 200px;
+  margin-top: 20px;
+  button {
+    width: 300px;
+    height: 50px;
   }
 }
