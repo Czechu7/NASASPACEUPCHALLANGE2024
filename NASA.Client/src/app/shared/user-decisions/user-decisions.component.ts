@@ -29,7 +29,16 @@ interface IStats {
 })
 export class UserDecisionsComponent {
   svgFill: string;
+<<<<<<< HEAD
   stats:IStats = { budget: 100, safety: 60, infrastructure: 70, morale: 90 }
+=======
+  day: number = 1;
+  round: number = 1;
+
+  constructor() {
+    this.svgFill = 'rgba(0, 128, 0, 0.5)';
+  }
+>>>>>>> 22d9bf01aa3e08891cf2c160401d37b860a7f2d4
   data: IUserDecisions = {
     description: 'This is a user decision.',
     forecast: 'Stats of weather',
