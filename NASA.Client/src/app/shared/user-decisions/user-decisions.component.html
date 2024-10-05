@@ -4,17 +4,19 @@
       {{ data.description }}
     </div>
     <div class="stats">
-      {{ data.stats }}
+      {{ stats }}
     </div>
   </div>
   <div class="image-container">
     <div class="stat-container">
       <img class="stretched-img" src="assets/mood.svg" alt="Mood Icon" />
-      <div class="progress-container"><div class="progress"></div></div>
+      <div class="value">{{stats.morale}}</div>
+      <div class="progress-container"><div class="progress p-morale" [ngStyle]="{ 'width': stats.morale + '%' }"></div></div>
     </div>
     <div class="stat-container">
       <img class="stretched-img" src="assets/paid.svg" alt="Paid Icon" />
-      <div class="progress-container"><div class="progress"></div></div>
+      <div class="value">{{stats.budget}}</div>
+      <div class="progress-container"><div class="progress p-budget" [ngStyle]="{ 'width': stats.budget + '%' }"></div></div>
     </div>
     <div class="stat-container">
       <img
@@ -22,7 +24,8 @@
         src="assets/apartment.svg"
         alt="Apartment Icon"
       />
-      <div class="progress-container"><div class="progress"></div></div>
+      <div class="value">{{stats.infrastructure}}</div>
+      <div class="progress-container"><div class="progress p-infrastructure" [ngStyle]="{ 'width': stats.infrastructure + '%' }"></div></div>
     </div>
     <div class="stat-container">
       <img
@@ -30,7 +33,8 @@
         src="assets/security.svg"
         alt="Security Icon"
       />
-      <div class="progress-container"><div class="progress"></div></div>
+      <div class="value">{{stats.safety}}</div>
+      <div class="progress-container"><div class="progress p-safety" [ngStyle]="{ 'width': stats.safety + '%' }"></div></div>
     </div>
   </div>
   <div class="content-body">

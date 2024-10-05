@@ -1,14 +1,10 @@
 import { Component } from '@angular/core';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { MapComponent } from '../../components/map/map.component';
+import { NgStyle } from '@angular/common';
 
 interface IUserDecisions {
-  stats: {
-    budget: number;
-    safety: number;
-    infrastructure: number;
-    morale: number;
-  };
+
   description: string;
   forecast: string;
   decision1: string;
@@ -17,21 +13,24 @@ interface IUserDecisions {
   decision4: string;
 }
 
+interface IStats {
+    budget: number;
+    safety: number;
+    infrastructure: number;
+    morale: number;
+}
+
 @Component({
   selector: 'app-user-decisions',
   standalone: true,
-  imports: [TabsModule, MapComponent],
+  imports: [TabsModule, MapComponent, NgStyle],
   templateUrl: './user-decisions.component.html',
   styleUrl: './user-decisions.component.scss',
 })
 export class UserDecisionsComponent {
   svgFill: string;
-
-  constructor() {
-    this.svgFill = 'rgba(0, 128, 0, 0.5)';
-  }
+  stats:IStats = { budget: 100, safety: 60, infrastructure: 70, morale: 90 }
   data: IUserDecisions = {
-    stats: { budget: 100, safety: 60, infrastructure: 70, morale: 90 },
     description: 'This is a user decision.',
     forecast: 'Stats of weather',
     decision1: 'Decision 1',
@@ -39,4 +38,10 @@ export class UserDecisionsComponent {
     decision3: 'Decision 3',
     decision4: 'Decision 4',
   };
+
+  constructor() {
+    this.svgFill = 'rgba(0, 128, 0, 0.5)';
+  }
+
+
 }

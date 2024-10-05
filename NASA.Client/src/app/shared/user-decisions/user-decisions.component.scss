@@ -27,11 +27,17 @@
       margin-bottom: 10px;
     }
 
+
     .progress {
       width: 80%;
       height: 100%;
       background-color: #39c90d;
     }
+
+    .value {
+        position: absolute;
+        margin-top: 92px;
+      }
   }
 }
 .content {
