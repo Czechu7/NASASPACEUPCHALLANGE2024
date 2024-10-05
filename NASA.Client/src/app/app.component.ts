@@ -6,7 +6,7 @@ import { MatToolbar } from '@angular/material/toolbar';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { WorldMapComponent } from './components/world-map/world-map.component';
 
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -23,8 +23,8 @@ import { Router } from '@angular/router'
 })
 export class AppComponent {
   constructor(private router: Router) {}
-goToNextPage() {
-  this.router.navigate(['/next-page']);
-}
+  goToNextPage() {
+    this.router.navigate(['/start']);
+  }
   title = 'NASA.Client';
 }
