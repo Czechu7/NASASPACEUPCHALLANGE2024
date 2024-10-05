@@ -4,6 +4,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatToolbar } from '@angular/material/toolbar';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { WorldMapComponent } from './components/world-map/world-map.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     FooterComponent,
     MatToolbar,
     SpinnerComponent,
+    WorldMapComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
