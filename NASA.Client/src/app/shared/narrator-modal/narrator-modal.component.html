@@ -1,0 +1,12 @@
+<div class="modal-content">
+  <div class="text-content">
+    @for (item of data; track $index) {
+    <p>{{ item }}</p>
+    }
+  </div>
+  <div class="modal-controls">
+    <h2 (click)="closeModal()" class="pointer continue-button">
+      Click to continue..
+    </h2>
+  </div>
+</div>

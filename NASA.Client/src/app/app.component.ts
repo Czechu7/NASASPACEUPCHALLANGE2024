@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { MatToolbar } from '@angular/material/toolbar';
+import { Router, RouterOutlet } from '@angular/router';
+import { FooterComponent } from './components/footer/footer.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { HomeComponent } from './home/home.component';
+
 import { WorldMapComponent } from './components/world-map/world-map.component';
 
-import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    HomeComponent,
     RouterOutlet,
     NavbarComponent,
     FooterComponent,
