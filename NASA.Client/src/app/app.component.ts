@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatToolbar } from '@angular/material/toolbar';
-
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -12,5 +12,9 @@ import { MatToolbar } from '@angular/material/toolbar';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  constructor(private router: Router) {}
+goToNextPage() {
+  this.router.navigate(['/next-page']);
+}
   title = 'NASA.Client';
 }

@@ -1,7 +1,13 @@
 <app-navbar></app-navbar>
 
 <div class="main">
-  <router-outlet />
+  <div class="content">
+    <div class="overlay-text"></div>
+    <h1>NASA Space Apps 2024</h1>
+    <p>Globe protocol game!</p>
+    <button class="cta-button" (click)="goToNextPage()">Start your journey</button>
+  </div>
+  <router-outlet></router-outlet>
 </div>
 
 <app-footer></app-footer>
