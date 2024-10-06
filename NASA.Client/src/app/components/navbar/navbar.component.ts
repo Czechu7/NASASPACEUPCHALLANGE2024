@@ -15,7 +15,7 @@ export class NavbarComponent {
   constructor(private router: Router){}
 
   goToHOME() {
-    this.router.navigate(['/home.component.html']);
+    this.router.navigate(['/home']);
 
 
 
