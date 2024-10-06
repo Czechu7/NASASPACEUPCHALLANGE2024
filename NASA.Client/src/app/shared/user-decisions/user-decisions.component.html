@@ -13,6 +13,7 @@
       {{ statsService.stats() }}
     </div>
   </div>
+  <div style="display: flex;">
   <div class="image-container">
     <div class="stat-container">
       <img class="stretched-img" src="assets/mood.svg" alt="Mood Icon" [@animateChange]="statsService.stats().morale" />
@@ -86,4 +87,5 @@
       </tab>
     </tabset>
   </div>
+</div>
 </div>
