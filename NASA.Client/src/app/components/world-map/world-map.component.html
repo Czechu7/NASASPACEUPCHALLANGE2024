@@ -1,29 +1,55 @@
 @if (isLoading) {
-  <app-spinner></app-spinner>
+<app-spinner></app-spinner>
 }
 <div class="container-fluid">
   <svg></svg>
 </div>
 
-@if(selectedEvent) {
-  <div class="event-details">
-    <div class="event-description">
-      <h2>{{ selectedEvent.title }}</h2>
-      <p><strong>Category:</strong> {{ selectedEvent.categories[0].title }}</p>
-      <p>{{ selectedEvent.description }}</p>
-      <p><a target="_blank" [href]="selectedEvent.sources[0].url">{{ selectedEvent.sources[0].url }}</a></p>
-      <p><strong>Date:</strong> {{ selectedEvent.geometries[0].date }}</p>
-      <p><strong>Link:</strong> <a href="{{ selectedEvent.link }}" target="_blank">Show more</a></p>
+<div class="legend">
+  <h5>Legend</h5>
+  <div style="text-align: left">
+    <ul>
+      <li>
+        <div class="circle green"></div>
+        - avaliable
+      </li>
+      <li>
+        <div class="circle red"></div>
+        - archive
+      </li>
+      
+    </ul>
+  </div>
+</div>
 
-      @if(selectedEvent.geometries[0].isGame) {
-        <div>
-          <button mat-flat-button routerLink="/user-decision">Play</button>
-          <button class="button" mat-flat-button routerLink="/statistics">Statistic</button>
-        </div>
-      }
-    </div>
+@if(selectedEvent) {
+<div class="event-details">
+  <div class="event-description">
+    <h2>{{ selectedEvent.title }}</h2>
+    <p><strong>Category:</strong> {{ selectedEvent.categories[0].title }}</p>
+    <p>{{ selectedEvent.description }}</p>
+    <p>
+      <a target="_blank" [href]="selectedEvent.sources[0].url">{{
+        selectedEvent.sources[0].url
+      }}</a>
+    </p>
+    <p><strong>Date:</strong> {{ selectedEvent.geometries[0].date }}</p>
+    <p>
+      <strong>Link:</strong>
+      <a href="{{ selectedEvent.link }}" target="_blank">Show more</a>
+    </p>
+
     @if(selectedEvent.geometries[0].isGame) {
-      <img src="assets/flood1.jpg" class="event-image">
+    <div>
+      <button mat-flat-button routerLink="/user-decision">Play</button>
+      <button class="button" mat-flat-button routerLink="/statistics">
+        Statistic
+      </button>
+    </div>
     }
   </div>
+  @if(selectedEvent.geometries[0].isGame) {
+  <img src="assets/flood1.jpg" class="event-image" />
+  }
+</div>
 }
