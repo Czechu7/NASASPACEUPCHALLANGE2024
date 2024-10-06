@@ -1,30 +1,30 @@
-// .stats-dialog {
-//     width: 80%; /* 80% szerokości */
-//     height: 80%; /* 80% wysokości */
-//     background-color: white; /* Kolor tła dialogu */
-//     border-radius: 10px; /* Zaokrąglone brzegi */
-//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego wyglądu */
-//     position: fixed; /* Pozycjonowanie dialogu */
-//     top: 50%; /* Wyśrodkowanie w pionie */
-//     left: 50%; /* Wyśrodkowanie w poziomie */
-//     transform: translate(-50%, -50%); /* Przesunięcie do środka */
-//     padding: 20px; /* Wewnętrzne odstępy */
-//     z-index: 1000; /* Upewnij się, że dialog jest na wierzchu */
-//     margin: auto;
-// }
+.stats-dialog {
+    width: 80%; /* 80% szerokości */
+    height: 80%; /* 80% wysokości */
+    background-color: white; /* Kolor tła dialogu */
+    border-radius: 10px; /* Zaokrąglone brzegi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego wyglądu */
+    position: fixed; /* Pozycjonowanie dialogu */
+    top: 50%; /* Wyśrodkowanie w pionie */
+    left: 50%; /* Wyśrodkowanie w poziomie */
+    transform: translate(-50%, -50%); /* Przesunięcie do środka */
+    padding: 20px; /* Wewnętrzne odstępy */
+    z-index: 1000; /* Upewnij się, że dialog jest na wierzchu */
+    margin: auto;
+}
 
-// #chart {
-//     width: 200%;
-//     height: 160%;
-// }
-// img{
-//   width:30%;
+#chart {
+    width: 200%;
+    height: 160%;
+}
+img{
+  width:50%;
 
-// }
-// .tab-pane img {
-//     max-width: 100%; /* Maksymalna szerokość obrazu */
-//     max-height: 70vh; /* Maksymalna wysokość obrazu */
-//     display: block;
-//     margin: 0 auto; /* Wyśrodkowanie obrazu */
-//     padding: 10px 0; /* Odstęp od góry i dołu */
-// }
+}
+.tab-pane img {
+    max-width: 100%; /* Maksymalna szerokość obrazu */
+    max-height: 70vh; /* Maksymalna wysokość obrazu */
+    display: block;
+    margin: 0 auto; /* Wyśrodkowanie obrazu */
+    padding: 10px 0; /* Odstęp od góry i dołu */
+}
