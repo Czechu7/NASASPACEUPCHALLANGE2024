@@ -1,21 +1,31 @@
-import { Component, OnInit, signal } from '@angular/core';
-import { TabsModule } from 'ngx-bootstrap/tabs';
-import { MapComponent } from '../../components/map/map.component';
+import { animate, style, transition, trigger } from '@angular/animations';
 import { NgStyle } from '@angular/common';
+import { Component, OnInit, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { StatsService } from '../../service/stats.service';
-import { QuestionsService } from '../../service/questions.service';
-import { IDecision, IResQuestion } from '../../models/question';
-import { Router } from '@angular/router';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { StatsDialogComponent } from '../../stats-dialog/stats-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { trigger, style, animate, transition } from '@angular/animations';
+import { Router } from '@angular/router';
+import { BsModalRef } from 'ngx-bootstrap/modal';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ImageModalComponent } from '../../components/image-modal/image-modal.component';
+import { MapComponent } from '../../components/map/map.component';
+import { IDecision, IResQuestion } from '../../models/question';
+import { QuestionsService } from '../../service/questions.service';
+import { StatsService } from '../../service/stats.service';
+import { StatsDialogComponent } from '../../stats-dialog/stats-dialog.component';
+import { RouterEnum } from '../../enums/router.enum';
 
 @Component({
   selector: 'app-user-decisions',
   standalone: true,
-  imports: [TabsModule, MapComponent, NgStyle, MatButtonModule,MatDialogModule,MatTooltipModule,],
+  imports: [
+    TabsModule,
+    MapComponent,
+    NgStyle,
+    MatButtonModule,
+    MatDialogModule,
+    MatTooltipModule,
+  ],
   templateUrl: './user-decisions.component.html',
   styleUrl: './user-decisions.component.scss',
   animations: [
@@ -32,7 +42,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
   ],
 })
 export class UserDecisionsComponent implements OnInit {
-  svgFill: string;  
+  svgFill: string;
 
   openDialog(): void {
     this.dialog.open(StatsDialogComponent);
@@ -41,6 +51,8 @@ export class UserDecisionsComponent implements OnInit {
   data!: IResQuestion;
 
   checkedOption!: IDecision;
+
+  bsModalRef!: BsModalRef;
 
   constructor(
     protected statsService: StatsService,
@@ -59,8 +71,14 @@ export class UserDecisionsComponent implements OnInit {
         this.data = data;
       },
       error: () => {
-        this.router.navigate(['/statistics']);
+        this.router.navigate([RouterEnum.Statistics]);
       },
+    });
+  }
+
+  openModal(imageUrl: number) {
+    const dialogRef = this.dialog.open(ImageModalComponent, {
+      data: { imageUrl },
     });
   }
 
@@ -80,7 +98,7 @@ export class UserDecisionsComponent implements OnInit {
       this.statsService.stats().safety === 0;
 
     if (isZero) {
-      this.router.navigate(['/statistics']);
+      this.router.navigate([RouterEnum.Statistics]);
       return;
     }
     this.statsService.nextRounde(this.checkedOption);
@@ -94,9 +112,7 @@ export class UserDecisionsComponent implements OnInit {
     this.checkedOption = option;
   }
 
-  progressColorHandler(value: number) {
-
-  }
+  progressColorHandler(value: number) {}
 
   getMoraleColor() {
     const red = Math.floor((1 - this.statsService.stats().morale / 100) * 255); // Czerwony
@@ -111,8 +127,12 @@ export class UserDecisionsComponent implements OnInit {
   }
 
   getInfrastructureColor() {
-    const red = Math.floor((1 - this.statsService.stats().infrastructure / 100) * 255); // Czerwony
-    const green = Math.floor((this.statsService.stats().infrastructure / 100) * 255); // Zielony
+    const red = Math.floor(
+      (1 - this.statsService.stats().infrastructure / 100) * 255
+    ); // Czerwony
+    const green = Math.floor(
+      (this.statsService.stats().infrastructure / 100) * 255
+    ); // Zielony
     return `rgb(${red}, ${green}, 0)`;
   }
 

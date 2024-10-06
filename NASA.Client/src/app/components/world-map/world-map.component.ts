@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { RouterEnum } from '../../enums/router.enum';
 import * as L from 'leaflet';
 import { TutorialModalComponent } from '../../shared/tutorial-modal/tutorial-modal.component';
+import { MapclickinfoComponent } from '../mapclickinfo/mapclickinfo.component';
 
 @Component({
   selector: 'app-world-map',
@@ -51,6 +52,10 @@ export class WorldMapComponent implements OnInit {
 
     // Load events after map creation
     this.loadEvents();
+
+    this.map.on('click', (e: L.LeafletMouseEvent) => {
+      this.handleMapClick(e);
+    });
   }
 
   loadEvents(): void {
@@ -77,7 +82,32 @@ export class WorldMapComponent implements OnInit {
       });
     });
   }
-
+  handleMapClick(e: L.LeafletMouseEvent): void {
+    // Check if the click was on a marker by inspecting the event's target
+    if ((e.originalEvent.target as HTMLElement).classList.contains('leaflet-interactive')) {
+      // If the click was on a marker (which is interactive), do nothing
+      return;
+    }
+  
+    const { lat, lng } = e.latlng;
+  
+    // Create a marker at the clicked location
+    const marker = L.circleMarker([lat, lng], {
+      radius: 10,
+      color: 'yellow',
+    }).addTo(this.map);
+  
+    // Open a dialog
+    const dialogRef = this.dialog.open(MapclickinfoComponent, {
+      data: ['You clicked on the map!'],
+    });
+  
+    // Remove the marker when the dialog is closed
+    dialogRef.afterClosed().subscribe(() => {
+      this.map.removeLayer(marker);
+    });
+  }
+  
   showEventDetails(event: EonetEvent, marker: L.CircleMarker, isGame: boolean): void {
     this.selectedEvent = null;
 
