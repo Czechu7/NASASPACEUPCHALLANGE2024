@@ -92,4 +92,32 @@ export class UserDecisionsComponent implements OnInit {
   checkOption(option: IDecision) {
     this.checkedOption = option;
   }
+
+  progressColorHandler(value: number) {
+
+  }
+
+  getMoraleColor() {
+    const red = Math.floor((1 - this.statsService.stats().morale / 100) * 255); // Czerwony
+    const green = Math.floor((this.statsService.stats().morale / 100) * 255); // Zielony
+    return `rgb(${red}, ${green}, 0)`;
+  }
+
+  getBudgetColor() {
+    const red = Math.floor((1 - this.statsService.stats().budget / 100) * 255); // Czerwony
+    const green = Math.floor((this.statsService.stats().budget / 100) * 255); // Zielony
+    return `rgb(${red}, ${green}, 0)`;
+  }
+
+  getInfrastructureColor() {
+    const red = Math.floor((1 - this.statsService.stats().infrastructure / 100) * 255); // Czerwony
+    const green = Math.floor((this.statsService.stats().infrastructure / 100) * 255); // Zielony
+    return `rgb(${red}, ${green}, 0)`;
+  }
+
+  getSafetyColor() {
+    const red = Math.floor((1 - this.statsService.stats().safety / 100) * 255); // Czerwony
+    const green = Math.floor((this.statsService.stats().safety / 100) * 255); // Zielony
+    return `rgb(${red}, ${green}, 0)`;
+  }
 }

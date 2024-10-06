@@ -8,10 +8,10 @@ import { IDecision } from '../models/question';
 })
 export class StatsService {
   stats = signal<IStats>({
-    budget: 50,
+    budget: 20,
     safety: 50,
-    infrastructure: 50,
-    morale: 50,
+    infrastructure: 80,
+    morale: 100,
   });
 
   day = signal<number>(1);
