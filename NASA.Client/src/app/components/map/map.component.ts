@@ -12,22 +12,15 @@ export class MapComponent implements OnInit {
   coordinates: [number, number] = [45.815, 15.9819];
   zoom: number = 13;
 
-  // floodArea: [number, number][][] = [
-  //   [
-  //     [45.81, 15.97],
-  //     [45.82, 15.98],
-  //     [45.81, 16.0],
-  //     [45.8, 15.99],
-  //     [45.81, 15.97],
-  //   ],
-  //   [
-  //     [45.815, 15.985],
-  //     [45.82, 15.99],
-  //     [45.818, 16.005],
-  //     [45.814, 16.002],
-  //     [45.815, 15.985],
-  //   ],
-  // ];
+  floodArea: [number, number][][] = [
+    [
+      [45.81, 15.97],
+      [45.82, 15.98],
+      [45.81, 16.0],
+      [45.8, 15.99],
+      [45.81, 15.97],
+    ],
+  ];
 
   map: L.Map | undefined;
   floodLayer: L.LayerGroup | undefined;
@@ -51,13 +44,13 @@ export class MapComponent implements OnInit {
 
     this.addFloodLayer();
 
-    // const imageUrl = '/assets/flood_overlay.png';
+    const imageUrl = '/assets/image.png';
     const imageBounds: [[number, number], [number, number]] = [
-      [45.8, 15.95],
-      [45.83, 16.02],
+      [45.805, 15.965],
+      [45.825, 16.01],
     ];
 
-    // imageOverlay(imageUrl, imageBounds).addTo(this.map);
+    imageOverlay(imageUrl, imageBounds).addTo(this.map);
   }
 
   private addFloodLayer(): void {
@@ -67,14 +60,14 @@ export class MapComponent implements OnInit {
 
     this.floodLayer = layerGroup();
 
-    // this.floodArea.forEach((area) => {
-    //   const poly = polygon(area, {
-    //     color: 'blue',
-    //     fillColor: 'blue',
-    //     fillOpacity: 0.5,
-    //   });
-    //   poly.addTo(this.floodLayer!);
-    // });
+    this.floodArea.forEach((area) => {
+      const poly = polygon(area, {
+        color: 'blue',
+        fillColor: 'blue',
+        fillOpacity: 0.5,
+      });
+      poly.addTo(this.floodLayer!);
+    });
 
     this.floodLayer.addTo(this.map!);
   }
