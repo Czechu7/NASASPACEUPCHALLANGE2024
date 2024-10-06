@@ -5,6 +5,7 @@ import { EonetEvent } from '../../interfaces/eonet.interface';
 import { EonetService } from '../../service/eonet-service.service';
 import { SpinnerComponent } from '../spinner/spinner.component';
 import { RouterModule } from '@angular/router';
+import { RouterEnum } from '../../enums/router.enum';
 
 @Component({
   selector: 'app-world-map',
@@ -18,6 +19,7 @@ export class WorldMapComponent implements OnInit {
   selectedEvent: EonetEvent | null = null;
   previousSelectedCircle: any = null; // To track the previous circle
   previousEvent: EonetEvent | null = null; // Track the previous event to reset its color
+  RouterEnum = RouterEnum;
 
   constructor(private eonetService: EonetService) {}
 

@@ -3,26 +3,27 @@ import { WorldMapComponent } from './components/world-map/world-map.component';
 import { HomeComponent } from './home/home.component';
 import { UserDecisionsComponent } from './shared/user-decisions/user-decisions.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { RouterEnum } from './enums/router.enum';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: RouterEnum.Home,
     component: HomeComponent,
   },
   {
-    path: 'next-page',
+    path: RouterEnum.NextPage,
     component: WorldMapComponent,
   },
   {
-    path: 'user-decision',
+    path: RouterEnum.Game,
     component: UserDecisionsComponent,
   },
   {
-    path: 'statistics',
-    component:StatisticsComponent,
+    path: RouterEnum.Statistics,
+    component: StatisticsComponent,
   },
   {
-    path:'home',
-    component:HomeComponent,
-  }
+    path: RouterEnum.Home,
+    component: HomeComponent,
+  },
 ];
