@@ -12,6 +12,7 @@ public class Decisions
     public double Infrastructure { get; set; }
     public double Morale { get; set; }
     public int QuestionId { get; set; }
+    public string? ToolTip { get; set; }
     [JsonIgnore]
     public virtual Question? Question { get; set; }
 

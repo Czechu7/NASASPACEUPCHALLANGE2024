@@ -7,4 +7,5 @@ public class DecisionDto
     public double Safety { get; set; }
     public double Infrastructure { get; set; }
     public double Morale { get; set; }
+    public string? ToolTip { get; set; }
 }
