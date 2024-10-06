@@ -1,0 +1,43 @@
+:host {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    background: rgba(20, 20, 20, 0.6);
+    color: #fff;
+  
+    .text-content {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10%;
+      // width: 70%;
+
+    }
+  
+    .modal-controls {
+      display: flex;
+      justify-content: end;
+      width: 100%;
+  
+      h2 {
+        cursor: pointer;
+        justify-self: end;
+        
+      }
+    }
+  }
