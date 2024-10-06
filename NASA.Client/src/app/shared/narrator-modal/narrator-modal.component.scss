@@ -29,11 +29,14 @@
     p {
       font-size: 32px;
       margin: 12px;
-      white-space: nowrap;
+      white-space: wrap;
       overflow: hidden;
+      max-width: 80vw;
       // border-right: 2px solid orange;
       width: 0;
-      height: 40px;
+      // height: 40px;
+
+      line-height: 2.25rem;
       animation: typing 1.5s steps(40, end), caret 0.75s step-end infinite;
       animation-fill-mode: forwards;
     }
@@ -82,4 +85,8 @@
 
 .modal-content .text-content p:nth-child(3) {
   animation-delay: 4s;
+}
+
+.modal-content .text-content p:nth-child(4) {
+  animation-delay: 6s;
 }

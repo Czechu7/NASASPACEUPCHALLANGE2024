@@ -13,19 +13,23 @@
       {{ statsService.stats() }}
     </div>
   </div>
+  <div style="display: flex;">
   <div class="image-container">
     <div class="stat-container">
       <img class="stretched-img" src="assets/mood.svg" alt="Mood Icon" [@animateChange]="statsService.stats().morale" />
       <div class="value" [@animateChange]="statsService.stats().morale">{{statsService.stats().morale}}</div>
       <div class="progress-container">
-        <div class="progress p-morale" [ngStyle]="{ 'width': statsService.stats().morale + '%' }"></div>
+        <div class="progress p-morale" [ngStyle]="{ 
+          'width': statsService.stats().morale + '%', 
+          'background-color': getMoraleColor() 
+        }"></div>
       </div>
     </div>
     <div class="stat-container">
       <img class="stretched-img" src="assets/paid.svg" alt="Paid Icon" [@animateChange]="statsService.stats().budget" />
       <div class="value" [@animateChange]="statsService.stats().budget">{{statsService.stats().budget}}</div>
       <div class="progress-container">
-        <div class="progress p-budget" [ngStyle]="{ 'width': statsService.stats().budget + '%' }"></div>
+        <div class="progress p-budget" [ngStyle]="{ 'width': statsService.stats().budget + '%', 'background-color': getBudgetColor() }"></div>
       </div>
     </div>
     <div class="stat-container">
@@ -34,7 +38,7 @@
       <div class="value" [@animateChange]="statsService.stats().infrastructure">{{statsService.stats().infrastructure}}
       </div>
       <div class="progress-container">
-        <div class="progress p-infrastructure" [ngStyle]="{ 'width': statsService.stats().infrastructure + '%' }"></div>
+        <div class="progress p-infrastructure" [ngStyle]="{ 'width': statsService.stats().infrastructure + '%', 'background-color': getInfrastructureColor() }"></div>
       </div>
     </div>
     <div class="stat-container">
@@ -42,7 +46,7 @@
         [@animateChange]="statsService.stats().safety" />
       <div class="value" [@animateChange]="statsService.stats().safety">{{statsService.stats().safety}}</div>
       <div class="progress-container">
-        <div class="progress p-safety" [ngStyle]="{ 'width': statsService.stats().safety + '%' }"></div>
+        <div class="progress p-safety" [ngStyle]="{ 'width': statsService.stats().safety + '%', 'background-color': getSafetyColor() }"></div>
       </div>
     </div>
   </div>
@@ -83,4 +87,5 @@
       </tab>
     </tabset>
   </div>
+</div>
 </div>

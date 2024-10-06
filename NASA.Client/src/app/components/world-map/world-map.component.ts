@@ -23,7 +23,11 @@ export class WorldMapComponent implements OnInit {
   previousEvent: EonetEvent | null = null; // Track the previous event to reset its color
   RouterEnum = RouterEnum;
 
-  constructor(private eonetService: EonetService, private router: Router, private dialog: MatDialog) {}
+  constructor(
+    private eonetService: EonetService,
+    private router: Router,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.isLoading = false;
@@ -124,11 +128,24 @@ export class WorldMapComponent implements OnInit {
 
   startGame(): void {
     console.log('Starting game...');
-    const narrator = this.dialog.open(NarratorModalComponent, {data: ["Let me tell you a story.", "A story of a struggle against the forces of nature.", "A story of the courageous bravery of ordinary people..."]});
-    narrator.afterClosed().subscribe(() => {
-      this.router.navigate([RouterEnum.Game]);
+    const narrator = this.dialog.open(NarratorModalComponent, {
+      data: [
+        'You are now at the head of a crisis staff. The sky is darkening on the horizon, the clouds are gathering inexorably. The flood is coming - that much is certain. Your team must make the right decisions to prepare for the inevitable.',
+        'What do you need to know to take the right action? ',
+        "Start with weather forecasts. Precipitation will be key. Are the forecasts calling for heavy rains? For how long will they last? These are not mere questions - the answers will determine how quickly river levels will rise. Storms? That's an additional problem, because they can bring local but violent hits of water.",
+        'Now look at the rivers. What are the water levels? If the river is already filling its bed after the recent rainfall, each additional drop brings disaster closer. Think about reservoirs - can they take in more water, or can they not withstand the onslaught? Overflowing dams can burst, and then the scenario gets much worse.',
+      ],
     });
-    setTimeout( () => {
-    }, 1000)
+    narrator.afterClosed().subscribe(() => {
+      const narrator2 = this.dialog.open(NarratorModalComponent, {data: ["Don't forget the terrain. Is it valleys, where water easily accumulates, or a hilly area from which water flows rapidly? Pay attention to urban areas - concrete does not absorb water. Any drop that falls on the city will quickly find its way to low areas, creating dangerous spills.", "Sewerage and infrastructure - the key to avoiding chaos. Is the rainwater drainage system efficient? If not, even moderate rainfall can cause flooding. Check bridges, roads, tunnels - any obstacle in the way can make the situation worse.", "History always tells more than it seems. Flooding is not always a surprise - it can recur in cycles. If it happened here a few years ago, consider what went wrong then. Maybe the same areas are equally at risk today?", "People and resources. You need to know how many people will need help. How many residents need to be evacuated? Do you have enough boats, equipment, firefighters to act quickly? Preparing an evacuation plan is the first step, but you also need to have something to act with."]});
+      narrator2.afterClosed().subscribe(() => {
+
+        this.router.navigate([RouterEnum.Game]);
+      });
+
+    });
+
+
+    setTimeout(() => {}, 1000);
   }
 }
