@@ -54,3 +54,37 @@ svg {
 .button-hide {
   margin-left: 25%;
 }
+
+.legend {
+  background-color: #ccc;
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  left: 60px;
+  bottom: 60px;
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  text-align: center;
+  .circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    background-color: royalblue;
+    border: 1px solid black;
+  }
+  .circle.red {
+    background-color: red;
+  }
+  .circle.green {
+    background-color: green;
+  }
+  li {
+    display: flex;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  h5 {
+    margin-top: 10px;
+  }
+}
