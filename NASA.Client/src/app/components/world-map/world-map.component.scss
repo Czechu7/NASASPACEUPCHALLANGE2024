@@ -31,6 +31,10 @@ svg {
   align-items: center; 
   width: calc(100% - 40px); 
 }
+.close-btn {
+  align-self: flex-end; /* Align button to the right */
+  margin-bottom: 10px; /* Space below the button */
+}
 
 .event-description {
   width: 50%; 
@@ -45,4 +49,8 @@ svg {
 
 .button {
   margin-left: 10px;
+}
+
+.button-hide {
+  margin-left: 25%;
 }

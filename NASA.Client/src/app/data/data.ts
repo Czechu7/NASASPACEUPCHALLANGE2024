@@ -2,7 +2,7 @@ import { EonetApiResponse, EonetEvent } from '../interfaces/eonet.interface';
 
 export const customZagrebEvent: EonetEvent = {
   id: 'EONET_99999',
-  title: 'DANUBE WATCH 3 2010 -EXTREME FLOODS IN THE DANUBE BASIN',
+  title: 'EXTREME FLOODS IN THE DANUBE BASIN',
   description:
     'Storms and heavy rains leaded to flash floods and inundation, and record breaking strong winds removed or destroyed the roofs of hundreds of family homes in eastern Croatia and the Trans-Danubian part of Hungary. Heavy rainfall affected central and northern regions of the Carpathian Basin from the Drava lowland to the Beskied Mountains and catchments of Slovak tributaries entering the Danube and Tisza.',
   link: 'https://www.icpdr.org/publications/danube-watch-3-2010-extreme-floods-danube-basin',
@@ -15,7 +15,7 @@ export const customZagrebEvent: EonetEvent = {
   sources: [
     {
       id: 'USGS',
-      url: 'https://earthquake.usgs.gov/earthquakes/eventpage/EONET_99999',
+      url: 'https://www.icpdr.org/publications/danube-watch-3-2010-extreme-floods-danube-basin',
     },
   ],
   geometries: [

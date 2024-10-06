@@ -16,6 +16,8 @@ import { RouterModule } from '@angular/router';
 export class WorldMapComponent implements OnInit {
   isLoading = true;
   selectedEvent: EonetEvent | null = null;
+  previousSelectedCircle: any = null; // To track the previous circle
+  previousEvent: EonetEvent | null = null; // Track the previous event to reset its color
 
   constructor(private eonetService: EonetService) {}
 
@@ -75,22 +77,44 @@ export class WorldMapComponent implements OnInit {
         const projected = projection([long, lat]);
 
         if (projected) {
-          svg
+          const isGame = geometry.isGame ?? false; // Handle undefined with default value false
+          const circle = svg
             .append('circle')
             .attr('cx', projected[0])
             .attr('cy', projected[1])
-            .attr('r', geometry.isGame ? 10 : 5)
-            .attr('fill', geometry.isGame ? '#63e667' : 'red')
+            .attr('r', isGame ? 10 : 5)
+            .attr('fill', isGame ? '#63e667' : 'red')
             .attr('stroke', '#000')
             .attr('stroke-width', 1)
-            .on('click', () => this.showEventDetails(event));
+            .on('click', () => {
+              this.showEventDetails(event, circle, isGame); // Pass the isGame boolean
+            });
         }
       });
     });
   }
 
-  showEventDetails(event: EonetEvent): void {
+  showEventDetails(event: EonetEvent, circle: any, isGame: boolean): void {
     this.selectedEvent = null;
+
+    // Reset color of the previously selected circle based on isGame
+    if (this.previousSelectedCircle) {
+      const previousIsGame = this.previousEvent?.geometries[0].isGame ?? false; // Handle undefined
+      const previousColor = previousIsGame ? '#63e667' : 'red'; // Use isGame for color reset
+      this.previousSelectedCircle.attr('fill', previousColor);
+    }
+
+    // Change the color of the clicked circle to purple
+    circle.attr('fill', 'purple');
+
+    // Store the selected circle and event
+    this.previousSelectedCircle = circle;
+    this.previousEvent = event;
+
     this.selectedEvent = event;
+  }
+
+  closeEventDetails(): void {
+    this.selectedEvent = null; // Hide the event details when closed
   }
 }
