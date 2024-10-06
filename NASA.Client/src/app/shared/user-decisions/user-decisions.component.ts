@@ -7,19 +7,15 @@ import { StatsService } from '../../service/stats.service';
 import { QuestionsService } from '../../service/questions.service';
 import { IDecision, IResQuestion } from '../../models/question';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { StatsDialogComponent } from '../../stats-dialog/stats-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-user-decisions',
   standalone: true,
-  imports: [
-    TabsModule,
-    MapComponent,
-    NgStyle,
-    MatButtonModule,
-    MatTooltipModule,
-  ],
+  imports: [TabsModule, MapComponent, NgStyle, MatButtonModule,MatDialogModule,MatTooltipModule,],
   templateUrl: './user-decisions.component.html',
   styleUrl: './user-decisions.component.scss',
   animations: [
@@ -36,7 +32,11 @@ import { trigger, style, animate, transition } from '@angular/animations';
   ],
 })
 export class UserDecisionsComponent implements OnInit {
-  svgFill: string;
+  svgFill: string;  
+
+  openDialog(): void {
+    this.dialog.open(StatsDialogComponent);
+  }
 
   data!: IResQuestion;
 
@@ -45,7 +45,8 @@ export class UserDecisionsComponent implements OnInit {
   constructor(
     protected statsService: StatsService,
     private questionsService: QuestionsService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {
     this.svgFill = 'rgba(0, 128, 0, 0.5)';
   }
