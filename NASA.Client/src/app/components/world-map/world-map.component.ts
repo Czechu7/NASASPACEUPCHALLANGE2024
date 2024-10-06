@@ -10,6 +10,7 @@ import { RouterEnum } from '../../enums/router.enum';
 import * as L from 'leaflet';
 import { TutorialModalComponent } from '../../shared/tutorial-modal/tutorial-modal.component';
 import { MapclickinfoComponent } from '../mapclickinfo/mapclickinfo.component';
+import { StatsService } from '../../service/stats.service';
 
 @Component({
   selector: 'app-world-map',
@@ -31,6 +32,7 @@ export class WorldMapComponent implements OnInit {
 
   constructor(
     private eonetService: EonetService,
+    private statsService: StatsService,
     private router: Router,
     private dialog: MatDialog
   ) {}
@@ -133,6 +135,7 @@ export class WorldMapComponent implements OnInit {
   }
 
   startGame(): void {
+    this.statsService.resetPoints();
     console.log('Starting game...');
     const narrator = this.dialog.open(NarratorModalComponent, {
       data: [

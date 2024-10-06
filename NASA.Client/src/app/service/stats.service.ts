@@ -8,10 +8,10 @@ import { IDecision } from '../models/question';
 })
 export class StatsService {
   stats = signal<IStats>({
-    budget: 20,
+    budget: 50,
     safety: 50,
-    infrastructure: 80,
-    morale: 100,
+    infrastructure: 50,
+    morale: 50,
   });
 
   day = signal<number>(1);
@@ -19,6 +19,15 @@ export class StatsService {
 
   updatePoints(stats: IStats) {
     this.stats.set(stats);
+  }
+
+  resetPoints() {
+    this.stats.set({
+      budget: 50,
+      safety: 50,
+      infrastructure: 50,
+      morale: 50,
+    })
   }
 
   nextRounde(checkedOption: IDecision) {
