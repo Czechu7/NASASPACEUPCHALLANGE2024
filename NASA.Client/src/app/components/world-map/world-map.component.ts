@@ -4,7 +4,9 @@ import * as d3 from 'd3';
 import { EonetEvent } from '../../interfaces/eonet.interface';
 import { EonetService } from '../../service/eonet-service.service';
 import { SpinnerComponent } from '../spinner/spinner.component';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { NarratorModalComponent } from '../../shared/narrator-modal/narrator-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 import { RouterEnum } from '../../enums/router.enum';
 
 @Component({
@@ -21,7 +23,7 @@ export class WorldMapComponent implements OnInit {
   previousEvent: EonetEvent | null = null; // Track the previous event to reset its color
   RouterEnum = RouterEnum;
 
-  constructor(private eonetService: EonetService) {}
+  constructor(private eonetService: EonetService, private router: Router, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.isLoading = false;
@@ -118,5 +120,15 @@ export class WorldMapComponent implements OnInit {
 
   closeEventDetails(): void {
     this.selectedEvent = null; // Hide the event details when closed
+  }
+
+  startGame(): void {
+    console.log('Starting game...');
+    const narrator = this.dialog.open(NarratorModalComponent, {data: ["Let me tell you a story.", "A story of a struggle against the forces of nature.", "A story of the courageous bravery of ordinary people..."]});
+    narrator.afterClosed().subscribe(() => {
+      this.router.navigate([RouterEnum.Game]);
+    });
+    setTimeout( () => {
+    }, 1000)
   }
 }

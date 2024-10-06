@@ -42,7 +42,7 @@
 
     @if(selectedEvent.geometries[0].isGame) {
     <div>
-      <button mat-flat-button routerLink="/{{RouterEnum.Game}}">Play</button>
+      <button mat-flat-button (click)="startGame()">Play</button>
       <button class="button" mat-flat-button routerLink="/{{RouterEnum.Statistics}}">Statistic</button>
       <button type="button" class="button btn btn-danger" (click)="closeEventDetails()">Close</button>
     </div>
