@@ -8,6 +8,7 @@ import { NarratorModalComponent } from '../../shared/narrator-modal/narrator-mod
 import { MatDialog } from '@angular/material/dialog';
 import { RouterEnum } from '../../enums/router.enum';
 import * as L from 'leaflet';
+import { TutorialModalComponent } from '../../shared/tutorial-modal/tutorial-modal.component';
 
 @Component({
   selector: 'app-world-map',
@@ -116,6 +117,7 @@ export class WorldMapComponent implements OnInit {
       narrator2.afterClosed().subscribe(() => {
 
         this.router.navigate([RouterEnum.Game]);
+        const tutorial = this.dialog.open(TutorialModalComponent);
       });
 
     });
