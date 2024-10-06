@@ -6,12 +6,19 @@
   </div>
 
   <div class="content-head">
-    <div class="description">
+    <div class="description container-head">
       {{ data.description }}
     </div>
-    <div (click)="openDialog()" class="stats" style="position: relative; z-index: 1000;">
-     
-      {{ statsService.stats() }}
+    <div (click)="openDialog()" class="container-head" style="cursor: pointer; position: relative; z-index: 1000; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <p><strong>Weather forecast</strong></p>
+      <div class="row">
+        <img src="../../../assets/sunny.svg" class="icons-forecast" alt="Sunny Icon" />
+        <img src="../../../assets/rainy.svg" class="icons-forecast" alt="Rainy Icon" />
+      </div>
+      <div class="row">
+        <img src="../../../assets/air.svg" class="icons-forecast" alt="Air Icon" />
+        <img src="../../../assets/flood.svg" class="icons-forecast" alt="Flood Icon" />
+      </div>
     </div>
   </div>
   <div style="display: flex;">

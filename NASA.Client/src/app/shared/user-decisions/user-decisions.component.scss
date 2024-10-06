@@ -62,8 +62,8 @@
     justify-content: space-around;
     align-items: center;
 
-    div {
-      height: 70%;
+    .container-head {
+      height: 80%;
       border-radius: 8px;
       background-color: rgba(255, 255, 255, 0.8);
       padding: 10px;
@@ -72,7 +72,7 @@
     }
 
     .description {
-      width: 30%;
+      width: 40%;
     }
 
     .stats {
@@ -164,4 +164,20 @@
 
 .checked {
   background-color: grey !important;
+}
+
+// .stats {
+// display: flex;
+// cursor: pointer;
+//   img {
+//     height: 32%;
+//     width: 32%;
+//     margin: 20px;
+//   }
+// }
+
+
+.icons-forecast {
+  height: 50px;
+  width: 50px;
 }
