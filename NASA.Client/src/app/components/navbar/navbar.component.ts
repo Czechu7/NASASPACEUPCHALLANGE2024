@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatMenu } from '@angular/material/menu';
 import { MatToolbar } from '@angular/material/toolbar';
-import { NgModule } from '@angular/core';
-import { Router, RouterModule, Routes } from '@angular/router';
+import { Router } from '@angular/router';
+import { RouterEnum } from '../../enums/router.enum';
 
 @Component({
   selector: 'app-navbar',
@@ -12,13 +12,11 @@ import { Router, RouterModule, Routes } from '@angular/router';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-  constructor(private router: Router){}
+  constructor(private router: Router) {}
+
+  RouterEnum = RouterEnum;
 
   goToHOME() {
-    this.router.navigate(['/home']);
-
-
-
+    this.router.navigate([RouterEnum.Home]);
   }
-
 }

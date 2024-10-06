@@ -5,11 +5,11 @@
 </div> -->
 <nav class="navbar">
   <ul>
-    <li><a  (click)="goToHOME()" >Home</a></li>
-    <li><a routerLink="/nasa-information">Nasa Information</a></li>
-    <li><a routerLink="/solutions">Solutions</a></li>
-    <li><a routerLink="/community">Community</a></li>
-    <li><a routerLink="/resources">Resources</a></li>
-    <li><a routerLink="/contact">Contact</a></li>
+    <li><a (click)="goToHOME()">Home</a></li>
+    <li><a href="/{{RouterEnum.NASA_INFORMATION}}">Nasa Information</a></li>
+    <li><a href="/{{RouterEnum.SOLUTIONS}}">Solutions</a></li>
+    <li><a href="/{{RouterEnum.COMMUNITY}}">Community</a></li>
+    <li><a href="/{{RouterEnum.RESOURCES}}">Resources</a></li>
+    <li><a href="/{{RouterEnum.CONTACT}}">Contact</a></li>
   </ul>
 </nav>
