@@ -3,6 +3,7 @@ import { WorldMapComponent } from './components/world-map/world-map.component';
 import { HomeComponent } from './home/home.component';
 import { UserDecisionsComponent } from './shared/user-decisions/user-decisions.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { StatsDialogComponent } from './stats-dialog/stats-dialog.component';
 
 export const routes: Routes = [
   {
@@ -24,5 +25,9 @@ export const routes: Routes = [
   {
     path:'home',
     component:HomeComponent,
-  }
+  },
+  // {
+  //   path:'stats-dialog',
+  //   component:StatsDialogComponent,
+  // }
 ];

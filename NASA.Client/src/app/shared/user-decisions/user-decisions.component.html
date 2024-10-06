@@ -9,7 +9,8 @@
     <div class="description">
       {{ data.description }}
     </div>
-    <div class="stats">
+    <div (click)="openDialog()" class="stats" style="position: relative; z-index: 1000;">
+     
       {{ statsService.stats() }}
     </div>
   </div>

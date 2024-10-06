@@ -1,0 +1,26 @@
+.stats-dialog {
+    width: 80%; /* 80% szerokości */
+    height: 80%; /* 80% wysokości */
+    background-color: white; /* Kolor tła dialogu */
+    border-radius: 10px; /* Zaokrąglone brzegi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego wyglądu */
+    position: fixed; /* Pozycjonowanie dialogu */
+    top: 50%; /* Wyśrodkowanie w pionie */
+    left: 50%; /* Wyśrodkowanie w poziomie */
+    transform: translate(-50%, -50%); /* Przesunięcie do środka */
+    padding: 20px; /* Wewnętrzne odstępy */
+    z-index: 1000; /* Upewnij się, że dialog jest na wierzchu */
+    margin: auto;
+}
+
+#chart {
+    width: 200%;
+    height: 160%;
+}
+
+
+  .tab-pane img {
+    width: 100%;
+    height: max;
+  }
+

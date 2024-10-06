@@ -47,7 +47,7 @@ export class StatisticsComponent implements OnInit {
       .domain([0, 100]) // Fixed from 0 to 100
       .range([this.height - this.margin.top - this.margin.bottom, 0]);
 
-    // Add X axis (co 1 player)
+    // Add X axis (add for each 1 player)
     svg.append('g')
       .attr('transform', `translate(0, ${this.height - this.margin.top - this.margin.bottom})`)
       .call(d3.axisBottom(x).ticks(this.data.length)); // Ticks for each player
