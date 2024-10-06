@@ -108,6 +108,7 @@
       align-items: center;
 
       .decision {
+        position: relative;
         margin: 10px;
         width: 50%;
         background-color: rgba(255, 255, 255, 0.8);
@@ -176,8 +177,16 @@
 //   }
 // }
 
-
 .icons-forecast {
   height: 50px;
   width: 50px;
+}
+
+.info {
+  background-color: #b3daa7;
+  padding: 10px;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  cursor: pointer;
 }
