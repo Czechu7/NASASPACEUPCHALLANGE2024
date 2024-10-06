@@ -10,83 +10,97 @@
       {{ data.description }}
     </div>
     <div (click)="openDialog()" class="stats" style="position: relative; z-index: 1000;">
-     
+
       {{ statsService.stats() }}
     </div>
   </div>
   <div style="display: flex;">
-  <div class="image-container">
-    <div class="stat-container">
-      <img class="stretched-img" src="assets/mood.svg" alt="Mood Icon" [@animateChange]="statsService.stats().morale" />
-      <div class="value" [@animateChange]="statsService.stats().morale">{{statsService.stats().morale}}</div>
-      <div class="progress-container">
-        <div class="progress p-morale" [ngStyle]="{ 
+    <div class="image-container">
+      <div class="stat-container">
+        <img class="stretched-img" src="assets/mood.svg" alt="Mood Icon"
+          [@animateChange]="statsService.stats().morale" />
+        <div class="value" [@animateChange]="statsService.stats().morale">{{statsService.stats().morale}}</div>
+        <div class="progress-container">
+          <div class="progress p-morale" [ngStyle]="{ 
           'width': statsService.stats().morale + '%', 
           'background-color': getMoraleColor() 
         }"></div>
+        </div>
       </div>
-    </div>
-    <div class="stat-container">
-      <img class="stretched-img" src="assets/paid.svg" alt="Paid Icon" [@animateChange]="statsService.stats().budget" />
-      <div class="value" [@animateChange]="statsService.stats().budget">{{statsService.stats().budget}}</div>
-      <div class="progress-container">
-        <div class="progress p-budget" [ngStyle]="{ 'width': statsService.stats().budget + '%', 'background-color': getBudgetColor() }"></div>
+      <div class="stat-container">
+        <img class="stretched-img" src="assets/paid.svg" alt="Paid Icon"
+          [@animateChange]="statsService.stats().budget" />
+        <div class="value" [@animateChange]="statsService.stats().budget">{{statsService.stats().budget}}</div>
+        <div class="progress-container">
+          <div class="progress p-budget"
+            [ngStyle]="{ 'width': statsService.stats().budget + '%', 'background-color': getBudgetColor() }"></div>
+
+        </div>
       </div>
-    </div>
-    <div class="stat-container">
-      <img class="stretched-img" src="assets/apartment.svg" alt="Apartment Icon"
-        [@animateChange]="statsService.stats().infrastructure" />
-      <div class="value" [@animateChange]="statsService.stats().infrastructure">{{statsService.stats().infrastructure}}
-      </div>
-      <div class="progress-container">
-        <div class="progress p-infrastructure" [ngStyle]="{ 'width': statsService.stats().infrastructure + '%', 'background-color': getInfrastructureColor() }"></div>
-      </div>
-    </div>
-    <div class="stat-container">
-      <img class="stretched-img" src="assets/security.svg" alt="Security Icon"
-        [@animateChange]="statsService.stats().safety" />
-      <div class="value" [@animateChange]="statsService.stats().safety">{{statsService.stats().safety}}</div>
-      <div class="progress-container">
-        <div class="progress p-safety" [ngStyle]="{ 'width': statsService.stats().safety + '%', 'background-color': getSafetyColor() }"></div>
-      </div>
-    </div>
-  </div>
-  <div class="content-body">
-    <tabset class="tabset">
-      <tab heading="Decisions">
-        <div class="body-controls">
-          <div>
-            <div (click)="checkOption(data.decisions[0])"
-              class="decision  {{data.decisions[0] === checkedOption ? 'checked': ''}}"
-              matTooltip="{{data.decisions[0].toolTip}}">
-              {{ data.decisions[0].description }}
-            </div>
-            <div (click)="checkOption(data.decisions[1])"
-              class="decision {{data.decisions[1] === checkedOption ? 'checked': ''}}"
-              matTooltip="{{data.decisions[1].toolTip }}">
-              {{ data.decisions[1].description  }}
-            </div>
-          </div>
-          <div>
-            <div (click)="checkOption(data.decisions[2])"
-              class="decision {{data.decisions[2] === checkedOption ? 'checked': ''}}"
-              matTooltip="{{data.decisions[0].toolTip}}">
-              {{ data.decisions[2].description  }}
-            </div>
-            <div (click)="checkOption(data.decisions[3])"
-              class="decision {{data.decisions[3] === checkedOption ? 'checked': ''}}"
-              matTooltip="{{data.decisions[3].toolTip}}">
-              {{ data.decisions[3].description  }}</div>
+      <div class="stat-container">
+        <img class="stretched-img" src="assets/apartment.svg" alt="Apartment Icon"
+          [@animateChange]="statsService.stats().infrastructure" />
+        <div class="value" [@animateChange]="statsService.stats().infrastructure">
+          {{statsService.stats().infrastructure}}
+        </div>
+        <div class="progress-container">
+          <div class="progress p-infrastructure"
+            [ngStyle]="{ 'width': statsService.stats().infrastructure + '%', 'background-color': getInfrastructureColor() }">
           </div>
         </div>
-        <div class="button-wrapper">
-          <button (click)="nextRounde()" mat-flat-button>Next</button>
+      </div>
+      <div class="stat-container">
+        <img class="stretched-img" src="assets/security.svg" alt="Security Icon"
+          [@animateChange]="statsService.stats().safety" />
+        <div class="value" [@animateChange]="statsService.stats().safety">{{statsService.stats().safety}}</div>
+        <div class="progress-container">
+          <div class="progress p-safety"
+            [ngStyle]="{ 'width': statsService.stats().safety + '%', 'background-color': getSafetyColor() }"></div>
         </div>
-      </tab>
-      <tab heading="Map">
-        <app-map></app-map>
-      </tab>
-    </tabset>
+      </div>
+    </div>
+    <div class="content-body">
+      <tabset class="tabset">
+        <tab heading="Decisions">
+          <div class="body-controls">
+            <div>
+              <div (click)="checkOption(data.decisions[0])"
+                class="decision  {{data.decisions[0] === checkedOption ? 'checked': ''}}"
+                matTooltip="{{data.decisions[0].toolTip}}">
+                {{ data.decisions[0].description }}
+                <p (click)="openModal(data.decisions[0].id)" class="info">&#8505;</p>
+              </div>
+              <div (click)="checkOption(data.decisions[1])"
+                class="decision {{data.decisions[1] === checkedOption ? 'checked': ''}}"
+                matTooltip="{{data.decisions[1].toolTip }}">
+                {{ data.decisions[1].description  }}
+                <p (click)="openModal(data.decisions[1].id)" class="info">&#8505;</p>
+              </div>
+            </div>
+            <div>
+              <div (click)="checkOption(data.decisions[2])"
+                class="decision {{data.decisions[2] === checkedOption ? 'checked': ''}}"
+                matTooltip="{{data.decisions[0].toolTip}}">
+                {{ data.decisions[2].description  }}
+                <p (click)="openModal(data.decisions[2].id)" class="info">&#8505;</p>
+              </div>
+              <div (click)="checkOption(data.decisions[3])"
+                class="decision {{data.decisions[3] === checkedOption ? 'checked': ''}}"
+                matTooltip="{{data.decisions[3].toolTip}}">
+                {{ data.decisions[3].description  }}
+                <p (click)="openModal(data.decisions[3].id)" class="info">&#8505;</p>
+              </div>
+
+            </div>
+          </div>
+          <div class="button-wrapper">
+            <button (click)="nextRounde()" mat-flat-button>Next</button>
+          </div>
+        </tab>
+        <tab heading="Map">
+          <app-map></app-map>
+        </tab>
+      </tabset>
+    </div>
   </div>
-</div>
 </div>
