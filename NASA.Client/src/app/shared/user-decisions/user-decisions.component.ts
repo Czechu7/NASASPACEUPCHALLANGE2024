@@ -7,13 +7,33 @@ import { StatsService } from '../../service/stats.service';
 import { QuestionsService } from '../../service/questions.service';
 import { IDecision, IResQuestion } from '../../models/question';
 import { Router } from '@angular/router';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-user-decisions',
   standalone: true,
-  imports: [TabsModule, MapComponent, NgStyle, MatButtonModule],
+  imports: [
+    TabsModule,
+    MapComponent,
+    NgStyle,
+    MatButtonModule,
+    MatTooltipModule,
+  ],
   templateUrl: './user-decisions.component.html',
   styleUrl: './user-decisions.component.scss',
+  animations: [
+    trigger('animateChange', [
+      transition(':increment', [
+        style({ color: 'green', transform: 'scale(1.1)' }),
+        animate('0.5s linear', style({ color: '*', transform: 'scale(1)' })),
+      ]),
+      transition(':decrement', [
+        style({ color: 'red', transform: 'scale(1.1)' }),
+        animate('0.5s linear', style({ color: '*', transform: 'scale(1)' })),
+      ]),
+    ]),
+  ],
 })
 export class UserDecisionsComponent implements OnInit {
   svgFill: string;
@@ -63,8 +83,10 @@ export class UserDecisionsComponent implements OnInit {
       return;
     }
     this.statsService.nextRounde(this.checkedOption);
-    this.index.update((i) => i + 1);
-    this.getQuestion();
+    setTimeout(() => {
+      this.index.update((i) => i + 1);
+      this.getQuestion();
+    }, 1000);
   }
 
   checkOption(option: IDecision) {

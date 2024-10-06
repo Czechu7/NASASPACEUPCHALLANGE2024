@@ -18,6 +18,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow-x: hidden;
 
     .progress-container {
       width: 80%;
@@ -54,7 +55,8 @@
     position: relative;
     height: 30%;
     width: 100%;
-    background: url("../../../assets/panorama_zagreb.jpg") no-repeat center center/cover;
+    background: url("../../../assets/panorama_zagreb.jpg") no-repeat center
+      center/cover;
     display: flex;
     justify-content: space-around;
     align-items: center;
