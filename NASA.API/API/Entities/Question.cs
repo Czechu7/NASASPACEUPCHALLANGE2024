@@ -9,4 +9,6 @@ public class Question
     public string? Description { get; set; }
     public string? Forecast { get; set; }
     public virtual ICollection<Decisions>? Decisions { get; set; }
+
+
 }
